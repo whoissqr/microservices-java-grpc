@@ -3,6 +3,10 @@ version: "3.7"
 services:
   bff-service:
     container_name: "bff-service_jv"
+    volumes:
+    - ./seeker:/tmp/seeker-in-docker:rw
+    environment:
+    - SEEKER_PROJECT_KEY=bff-service
     image: uid4oe/java-ms-bff:latest
     networks:
       - uid4oe
@@ -13,6 +17,10 @@ services:
       - .env
   user-service:
     container_name: "user-service_jv"
+    volumes:
+    - ./seeker:/tmp/seeker-in-docker:rw
+    environment:
+    - SEEKER_PROJECT_KEY=user-service
     image: uid4oe/java-ms-user:latest
     hostname: user-service
     networks:
@@ -24,6 +32,10 @@ services:
       - .env
   advice-service:
     container_name: "advice-service_jv"
+    volumes:
+    - ./seeker:/tmp/seeker-in-docker:rw
+    environment:
+    - SEEKER_PROJECT_KEY=advice-service
     image: uid4oe/java-ms-advice:latest
     hostname: advice-service
     networks:
@@ -35,6 +47,10 @@ services:
       - .env
   ui:
     container_name: "ui"
+    volumes:
+    - ./seeker:/tmp/seeker-in-docker:rw
+    environment:
+    - SEEKER_PROJECT_KEY=ui
     image: uid4oe/ms-grpc-ui:latest
     networks:
       - uid4oe
