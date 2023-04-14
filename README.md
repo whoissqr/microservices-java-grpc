@@ -1,3 +1,10 @@
+# how to deploy seeker agent
+```bash
+# create composite project and enable auto project creation
+docker network create uid4oe
+docker compose --file local.yml up -d
+browse to http://localhost:3000/java and create few user under Java tab
+```
 # Microservices Java gRPC
 
 [Only the Go Version is deploy, due to EC2 bills :)](https://go-grpc.uid4oe.dev)
